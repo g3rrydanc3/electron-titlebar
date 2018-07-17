@@ -68,7 +68,7 @@ function installTitlebar() {
                 if (typeof display !== 'string') display = '';
                 let img = document.createElement('img');
                 img.style.display = display;
-                img.className = 'button-img-' + type;
+                img.className = 'electron-titlebar-button-img-' + type;
 
                 let src;
                 if (platform === 'linux') src = path.resolve(basedir, type + '.svg');
@@ -78,7 +78,7 @@ function installTitlebar() {
                 return img;
             }
             let div = document.createElement('div');
-            div.className = 'button button-' + type;
+            div.className = 'electron-titlebar-button electron-titlebar-button-' + type;
 
             if (type === 'maximize') {
                 div.appendChild(createImage('maximize'));
@@ -91,7 +91,7 @@ function installTitlebar() {
         for (let x of ['close', 'minimize', 'maximize']) titlebar.appendChild(createButton(x));
 
         // register events
-        for (let elem of document.querySelectorAll('#electron-titlebar > .button, #electron-titlebar > .button img')) {
+        for (let elem of document.querySelectorAll('#electron-titlebar > .electron-titlebar-button, #electron-titlebar > .electron-titlebar-button img')) {
             elem.addEventListener('dragstart', (e) => { e.preventDefault(); })
         }
 
@@ -100,8 +100,8 @@ function installTitlebar() {
             else elem.style.display = 'none';
         }
 
-        let buttomImgMaximize = document.querySelector('#electron-titlebar > .button .button-img-maximize'),
-            buttomImgRestore = document.querySelector('#electron-titlebar > .button .button-img-restore');
+        let buttomImgMaximize = document.querySelector('#electron-titlebar > .electron-titlebar-button .electron-titlebar-button-img-maximize'),
+            buttomImgRestore = document.querySelector('#electron-titlebar > .electron-titlebar-button .electron-titlebar-button-img-restore');
 
         w.on('maximize', () => {
             showOrHide(buttomImgMaximize, false);
@@ -113,8 +113,8 @@ function installTitlebar() {
             showOrHide(buttomImgRestore, false);
         });
 
-        // workaround for the .button is still :hover after maximize window
-        for (let elem of document.querySelectorAll('#electron-titlebar > .button')) {
+        // workaround for the .electron-titlebar-button is still :hover after maximize window
+        for (let elem of document.querySelectorAll('#electron-titlebar > .electron-titlebar-button')) {
             elem.addEventListener('mouseover', () => {
                 elem.classList.add('hover');
             });
@@ -123,17 +123,17 @@ function installTitlebar() {
             });
         }
 
-        let buttonClose = document.querySelector('#electron-titlebar > .button-close');
+        let buttonClose = document.querySelector('#electron-titlebar > .electron-titlebar-button-close');
         if (buttonClose) buttonClose.addEventListener('click', () => {
             w.close();
         });
 
-        let butonMinimize = document.querySelector('#electron-titlebar > .button-minimize');
+        let butonMinimize = document.querySelector('#electron-titlebar > .electron-titlebar-button-minimize');
         if (butonMinimize) butonMinimize.addEventListener('click', () => {
             w.minimize();
         });
 
-        let butonMaximize = document.querySelector('#electron-titlebar > .button-maximize');
+        let butonMaximize = document.querySelector('#electron-titlebar > .electron-titlebar-button-maximize');
         if (butonMaximize) butonMaximize.addEventListener('click', () => {
             if (!w.isMaximized()) w.maximize();
             else w.unmaximize();
