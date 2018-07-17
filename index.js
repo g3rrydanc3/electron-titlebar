@@ -37,6 +37,10 @@ function installTitlebar() {
         drag.className = 'drag';
         titlebar.appendChild(drag);
     }
+	
+	if (titlebar.classList.contains('relative')) {
+		titlebar.style.position = 'relative'
+	}
 
     let container = document.createElement('div');
     container.style.position = 'relative';
