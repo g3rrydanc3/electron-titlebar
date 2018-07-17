@@ -8,11 +8,9 @@ Inset have 40px height, but I set to 27px.
 
 Causing drag area problem
 
-New Function add class `relative` to main div to make titlebar relative position
-
 ## Example
 ```html
-<div id="electron-titlebar" platform="win32" class="drag position">
+<div id="electron-titlebar" platform="win32" class="drag">
 	<div id="electron-titlebar-custom-title">
 		Microsoft Store
 	</div>
