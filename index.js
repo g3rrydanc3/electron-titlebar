@@ -37,6 +37,10 @@ function installTitlebar() {
         drag.className = 'drag';
         titlebar.appendChild(drag);
     }
+	
+	if (titlebar.classList.contains('fixed')) {
+		titlebar.style.position = 'fixed'
+	}
 
     let container = document.createElement('div');
     container.style.position = 'relative';
