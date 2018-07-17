@@ -1,7 +1,13 @@
 # electron-titlebar
 Cool titlebar for electron apps for every system.
 
+# CAUTION
+I don't fix inset class, if you use this fork, you shouldn't use inset.
+Inset have 40px height, but I set to 27px.
+Causing drag area problem
 # Screenshots
+#### Fix Title
+![Fix Title Screenshot](fix-title-text.png)
 #### Windows
 ![Windows Screenshot](windows-screen.png)
 #### Linux
