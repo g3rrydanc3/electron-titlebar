@@ -8,9 +8,9 @@ Inset have 40px height, but I set to 27px.
 
 Causing drag area problem
 
-##Example
+## Example
 ```html
-<div id="electron-titlebar" platform="win32" class="drag inset">
+<div id="electron-titlebar" platform="win32" class="drag">
 	<div id="electron-titlebar-custom-title">
 		Microsoft Store
 	</div>
