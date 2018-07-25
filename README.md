@@ -11,11 +11,24 @@ Causing drag area problem
 New Function add class `fixed` to main div to make titlebar fixed position
 
 ## Example
+```css
+@import '../node_modules/electron-titlebar/titlebar/titlebar.css';
+
+.content {
+    margin-top: 32px;
+    height: calc(100% - 32px);
+    flex: 1 0 auto;
+    overflow-y: auto;
+}
+```
 ```html
 <div id="electron-titlebar" platform="win32" class="drag fixed">
 	<div id="electron-titlebar-custom-title">
 		Microsoft Store
 	</div>
+</div>
+<div class="content">
+	<!--Your content here-->
 </div>
 ```
 

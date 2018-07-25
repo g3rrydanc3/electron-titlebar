@@ -1,23 +1,48 @@
 {
-  "name": "electron-titlebar",
-  "version": "0.0.3",
-  "description": "Cool titlebar for electron apps for every system",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
+  "_from": "git://github.com/g3rrydanc3/electron-titlebar.git",
+  "_id": "electron-titlebar@0.0.3",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/electron-titlebar",
+  "_phantomChildren": {},
+  "_requested": {
     "type": "git",
-    "url": "git+https://github.com/Menci/electron-titlebar.git"
+    "raw": "git://github.com/g3rrydanc3/electron-titlebar.git",
+    "rawSpec": "git://github.com/g3rrydanc3/electron-titlebar.git",
+    "saveSpec": "git://github.com/g3rrydanc3/electron-titlebar.git",
+    "fetchSpec": "git://github.com/g3rrydanc3/electron-titlebar.git",
+    "gitCommittish": null
   },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git://github.com/g3rrydanc3/electron-titlebar.git#6655c5c0ce5e3dd9272567390773201481037b8c",
+  "_spec": "git://github.com/g3rrydanc3/electron-titlebar.git",
+  "_where": "D:\\Github\\tirta-jaya\\pembukuan",
+  "author": {
+    "name": "Menci"
+  },
+  "bugs": {
+    "url": "https://github.com/Menci/electron-titlebar/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Cool titlebar for electron apps for every system",
+  "homepage": "https://github.com/Menci/electron-titlebar#readme",
   "keywords": [
     "titlebar",
     "electron"
   ],
-  "author": "Menci",
   "license": "LGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/Menci/electron-titlebar/issues"
+  "main": "index.js",
+  "name": "electron-titlebar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Menci/electron-titlebar.git"
   },
-  "homepage": "https://github.com/Menci/electron-titlebar#readme"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.3"
 }

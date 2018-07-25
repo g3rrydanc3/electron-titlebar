@@ -29,31 +29,10 @@ function installTitlebar() {
 
     if (titlebar.classList.contains('drag')) {
         let drag = document.createElement('div');
-        drag.style.position = 'absolute';
-        drag.style.width = '100%';
-        drag.style.height = '100%';
-        drag.style.top = '0';
-        drag.style.left = '0';
-        drag.className = 'drag';
+        drag.id = 'electron-titlebar-drag';
         titlebar.appendChild(drag);
+		titlebar.classList.remove('drag');
     }
-	
-	if (titlebar.classList.contains('fixed')) {
-		titlebar.style.position = 'fixed'
-	}
-
-    let container = document.createElement('div');
-    container.style.position = 'relative';
-    titlebar.parentNode.replaceChild(container, titlebar);
-    container.appendChild(titlebar);
-
-    let content = document.createElement('div');
-    content.style.width = '100%';
-    content.style.height = '100%';
-    content.style.position = 'absolute';
-
-    while (titlebar.firstChild) content.appendChild(titlebar.firstChild);
-    titlebar.appendChild(content);
 
     const platform = titlebar.getAttribute('platform') || process.platform;
     document.body.parentNode.setAttribute('electron-titlebar-platform', platform);
@@ -104,17 +83,21 @@ function installTitlebar() {
             else elem.style.display = 'none';
         }
 
-        let buttomImgMaximize = document.querySelector('#electron-titlebar > .electron-titlebar-button .electron-titlebar-button-img-maximize'),
-            buttomImgRestore = document.querySelector('#electron-titlebar > .electron-titlebar-button .electron-titlebar-button-img-restore');
+        let buttomImgMaximize = document.querySelector('#electron-titlebar > .electron-titlebar-button .electron-titlebar-button-img-maximize');
+		let buttomImgRestore = document.querySelector('#electron-titlebar > .electron-titlebar-button .electron-titlebar-button-img-restore');
 
         w.on('maximize', () => {
             showOrHide(buttomImgMaximize, false);
             showOrHide(buttomImgRestore, true);
+			document.getElementById('electron-titlebar-drag').style.top = 0;
+			document.getElementById('electron-titlebar-drag').style.left = 0;
         });
 
         w.on('unmaximize', () => {
             showOrHide(buttomImgMaximize, true);
             showOrHide(buttomImgRestore, false);
+			document.getElementById('electron-titlebar-drag').style.top = '7px';
+			document.getElementById('electron-titlebar-drag').style.left = '7px';
         });
 
         // workaround for the .electron-titlebar-button is still :hover after maximize window
@@ -143,11 +126,6 @@ function installTitlebar() {
             else w.unmaximize();
         });
     }
-
-    let link = document.createElement('link');
-    link.href = path.resolve(basedir, 'titlebar.css');
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
 };
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') installTitlebar();

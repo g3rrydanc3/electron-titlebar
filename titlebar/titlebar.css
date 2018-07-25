@@ -18,7 +18,7 @@
  */
 
 #electron-titlebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -30,18 +30,19 @@
 	z-index: 99;
 }
 
-#electron-titlebar .drag {
+#electron-titlebar > #electron-titlebar-drag {
     -webkit-app-region: drag;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
 }
 
 #electron-titlebar > .electron-titlebar-button img {
     position: absolute;
     cursor: default;
     -webkit-app-region: no-drag;
-}
-
-html.darwin #electron-titlebar > .electron-titlebar-button {
-    display: none;
 }
 
 #electron-titlebar > .electron-titlebar-button {
@@ -184,6 +185,14 @@ html[electron-titlebar-platform=win32] #electron-titlebar.inset > .electron-titl
 
 html[electron-titlebar-platform=win32] #electron-titlebar.inset.no-maximize > .electron-titlebar-button-minimize {
     right: 40px;
+}
+
+html#electron-titlebar.inset > #electron-titlebar-custom-title {
+    line-height: 40px; 
+}
+
+html #electron-titlebar.inset {
+    height: 40px;
 }
 
 #electron-titlebar-custom-title{
