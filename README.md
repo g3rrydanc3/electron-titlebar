@@ -13,12 +13,11 @@ New Function add class `fixed` to main div to make titlebar fixed position
 ## Example
 ```css
 @import '../node_modules/electron-titlebar/titlebar/titlebar.css';
-
 .content {
-    margin-top: 32px;
-    height: calc(100% - 32px);
+    margin-top: 30px;
+    height: calc(100% - 30px);
     flex: 1 0 auto;
-    overflow-y: auto;
+	overflow-y: auto;
 }
 ```
 ```html
