@@ -31,7 +31,6 @@ function installTitlebar() {
         let drag = document.createElement('div');
         drag.id = 'electron-titlebar-drag';
         titlebar.appendChild(drag);
-		titlebar.classList.remove('drag');
     }
 
     const platform = titlebar.getAttribute('platform') || process.platform;
@@ -85,19 +84,39 @@ function installTitlebar() {
 
         let buttomImgMaximize = document.querySelector('#electron-titlebar > .electron-titlebar-button .electron-titlebar-button-img-maximize');
 		let buttomImgRestore = document.querySelector('#electron-titlebar > .electron-titlebar-button .electron-titlebar-button-img-restore');
+		
+		function maximizedBehavior(){
+			if(w.isMaximized()){
+				showOrHide(buttomImgMaximize, false);
+				showOrHide(buttomImgRestore, true);
+				if (titlebar.classList.contains('drag')){
+					let drag = document.getElementById('electron-titlebar-drag');
+					drag.style.top = 0;
+					drag.style.left = 0;
+					drag.style.height = '100%';
+					drag.style.width = '100%';
+				}
+			}
+			else{
+				showOrHide(buttomImgMaximize, true);
+				showOrHide(buttomImgRestore, false);
+				if (titlebar.classList.contains('drag')){
+					let drag = document.getElementById('electron-titlebar-drag');
+					drag.style.top = '8px';
+					drag.style.left = '8px';
+					drag.style.height = 'calc(100% - 8px)';
+					drag.style.width = 'calc(100% - 8px)';
+				}
+			}
+		}
+		maximizedBehavior();
 
         w.on('maximize', () => {
-            showOrHide(buttomImgMaximize, false);
-            showOrHide(buttomImgRestore, true);
-			document.getElementById('electron-titlebar-drag').style.top = 0;
-			document.getElementById('electron-titlebar-drag').style.left = 0;
+            maximizedBehavior();
         });
 
         w.on('unmaximize', () => {
-            showOrHide(buttomImgMaximize, true);
-            showOrHide(buttomImgRestore, false);
-			document.getElementById('electron-titlebar-drag').style.top = '7px';
-			document.getElementById('electron-titlebar-drag').style.left = '7px';
+            maximizedBehavior();
         });
 
         // workaround for the .electron-titlebar-button is still :hover after maximize window
