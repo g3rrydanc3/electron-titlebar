@@ -42,17 +42,7 @@
     "url": "git+https://github.com/Menci/electron-titlebar.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.0.3",
-  "devDependencies": {
-    "css-loader": "^2.1.1",
-    "raw-loader": "^2.0.0",
-    "style-loader": "^0.23.1",
-    "svg-inline-loader": "^0.8.0",
-    "uglifyjs-webpack-plugin": "^2.1.2",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.2"
-  }
+  "version": "0.0.3"
 }

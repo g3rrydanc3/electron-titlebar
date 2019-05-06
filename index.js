@@ -18,8 +18,6 @@
  */
 
 'use strict';
-import css from './titlebar/titlebar.css';
-const fs = require('fs'); 
 
 function installTitlebar() {
     if (window.electron_titlebar_installed === true) return;
@@ -38,8 +36,7 @@ function installTitlebar() {
     const platform = titlebar.getAttribute('platform') || process.platform;
     document.body.parentNode.setAttribute('electron-titlebar-platform', platform);
 
-    const electron = eval("require('electron')");
-    const w = electron.remote.getCurrentWindow();
+    const w = require('electron').remote.getCurrentWindow();
     if (!w.isResizable() || !w.isMaximizable()) titlebar.classList.add('no-maximize');
     if (!w.isMinimizable()) titlebar.classList.add('no-minimize');
 
@@ -59,9 +56,7 @@ function installTitlebar() {
                 if (platform === 'linux') src = path.resolve(basedir, type + '.svg');
                 else if (platform === 'win32') src = path.resolve(basedir, 'caption-buttons.svg#' + type);
 
-                //img.setAttribute('src', url.resolve('file://', src));
-                const icon = fs.readFileSync(src);
-                img.src = icon;
+                img.setAttribute('src', url.resolve('file://', src));
                 return img;
             }
             let div = document.createElement('div');
