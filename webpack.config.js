@@ -11,7 +11,7 @@ module.exports = {
     entry: "./index.js",
     plugins: plugins,
     output: {
-        publicPath: "dist/",
+        publicPath: "dist",
         filename: 'electron-titlebar.js',
     },
     optimization: {
@@ -32,7 +32,7 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                loader: 'file-loader?name=[name].[ext]'
+                loader: 'svg-inline-loader'
             }
         ],
     },

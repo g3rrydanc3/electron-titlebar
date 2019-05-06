@@ -48,9 +48,9 @@
   "version": "0.0.3",
   "devDependencies": {
     "css-loader": "^2.1.1",
-    "file-loader": "^3.0.1",
     "raw-loader": "^2.0.0",
     "style-loader": "^0.23.1",
+    "svg-inline-loader": "^0.8.0",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2"
